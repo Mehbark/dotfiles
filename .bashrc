@@ -47,12 +47,12 @@ esac
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
+    # We have color support; assume it's compliant with Ecma-48
+    # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+    # a case would tend to support setf rather than setaf.)
+    color_prompt=yes
     else
-	color_prompt=
+    color_prompt=
     fi
 fi
 
@@ -105,8 +105,20 @@ alias cbr='cargo build --release'
 #general rust aliases
 alias rft='rustfmt'
 
+#git aliases
+alias gcs="batcat /home/mehbark/main/misc/gitCliCheatSheet.js"
+
 #QoL
 alias '..'="cd .."
+alias md="mkdir"
+alias m="makeAndMoveToDir"
+alias cat="batcat"
+
+#Define a function to make a directory and move to it
+makeAndMoveToDir() {
+  mkdir "$1"
+  cd "$1"
+}
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
