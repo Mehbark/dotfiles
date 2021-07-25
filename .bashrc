@@ -107,12 +107,92 @@ alias rft='rustfmt'
 
 #git aliases
 alias gcs="batcat /home/mehbark/main/misc/gitCliCheatSheet.js"
+alias gco="git checkout"
+alias gc="git commit -m"
+
+ezcommit() {
+  git commit -m "$1"
+}
 
 #QoL
+BAT(1)                                                                   General Commands Manual                                                                   BAT(1)
+
+NAME
+       bat - manual page for bat
+
+DESCRIPTION
+       bat - a cat(1) clone with syntax highlighting and Git integration.
+
+USAGE
+              bat [OPTIONS] [FILE]...
+
+              bat <SUBCOMMAND>
+
+OPTIONS
+       General remarks
+
+              Command-line options like '-l'/'--language' that take values can be specified as either '--language value', '--language=value', '-l value' or '-lvalue'.
+
+       -l, --language <language>
+
+              Explicitly  set  the  language  for  syntax  highlighting. The language can be specified as a name (like 'C++' or 'LaTeX') or possible file extension (like
+              'cpp', 'hpp' or 'md'). Use '--list-languages' to show all supported language names and file extensions.
+
+       -L, --list-languages
+
+              Display a list of supported languages for syntax highlighting.
+
+       -m, --map-syntax <from:to>...
+
+              Map a file extension or file name to an existing syntax. For example, to highlight *.conf files with the INI syntax, use '-m conf:ini'. To highlight  files
+              named '.myignore' with the Git Ignore syntax, use '-m .myignore:gitignore'.
+
+       --theme <theme>
+
+              Set  the theme for syntax highlighting. Use '--list-themes' to see all available themes. To set a default theme, add the '--theme="..."' option to the con‐
+              figuration file or export the BAT_THEME environment variable (e.g.: export BAT_THEME="...").
+
+       --list-themes
+
+              Display a list of supported themes for syntax highlighting.
+
+       --style <style-components>
+
+              Configure which elements (line numbers, file headers, grid borders, Git modifications, ..) to display in addition to the file contents. The argument  is  a
+              comma-separated  list  of  components  to  display  (e.g.   'numbers,changes,grid')  or  a  pre-defined  style  ('full').  To  set a default style, add the
+              '--style=".."' option to the configuration file or export the BAT_STYLE environment variable (e.g.: export BAT_STYLE=".."). Possible values: *auto*,  full,
+              plain, changes, header, grid, numbers, snip.
+
+       -p, --plain
+
+              Only  show plain style, no decorations. This is an alias for '--style=plain'. When '-p' is used twice ('-pp'), it also disables automatic paging (alias for
+              '--style=plain --pager=never').
+
+       -n, --number
+
+              Only show line numbers, no other decorations. This is an alias for '--style=numbers'
+
+       -A, --show-all
+
+              Show non-printable characters like space, tab or newline. Use '--tabs' to control the width of the tab-placeholders.
+
+       -r, --line-range <N:M>...
+
+              Only print the specified range of lines for each file. For example:
+
+              --line-range 30:40
+                     prints lines 30 to 40
+
+              --line-range :40
+                     prints lines 1 to 40
 alias '..'="cd .."
 alias md="mkdir"
 alias m="makeAndMoveToDir"
-alias cat="batcat"
+alias cat="simpleBat"
+
+simpleBat() {
+  batcat "$1" -p
+}
 
 #Define a function to make a directory and move to it
 makeAndMoveToDir() {
