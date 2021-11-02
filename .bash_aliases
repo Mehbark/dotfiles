@@ -44,3 +44,9 @@ new_cargo_quick() {
   git init
   cargo init
 }
+
+export PROMPT_DIRTRIM=2
+# directory shortcuts
+shopt -s cdable_vars
+export win_home=/mnt/c/Users/Clark
+export vsm=/mnt/c/Users/Clark/vscodemain
