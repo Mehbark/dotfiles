@@ -50,11 +50,25 @@ alias \
 	weath="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport" \
 
 
-test="echo it works!"
 # some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
+alias ll='exa -alF || ls -alF'
+alias la='exa -A || ls -A'
+alias ls='exa || ls'
 alias l='ls -CF'
+
+#general aliases
+alias v="nvim"
+alias vcf="nvim ~/.config/nvim/init.vim"
+alias e="emacsclient $1 || emacs --daemon && emacsclient $1"
+
+# vimwiki stufff
+alias vw="nvim ~/vimwiki/index.wiki"
+alias rendervw="nvim ~/vimwiki/index.wiki -c :VimwikiAll2HTML -c ':q'"
+alias k="nvim ~/vimwiki/Knowledge\ base.wiki"
+
+#directory shortcuts
+alias vsm="cd /mnt/c/Users/Clark/vscodemain"
+alias ..="cd .."
 
 #some cargo aliases :)
 alias cn='cargo new'
@@ -64,7 +78,9 @@ alias cr='cargo run'
 alias cb='cargo build'
 alias ct='cargo test'
 alias c='cargo clippy || cargo check'
-alias cw="cargo watch -c --poll -x 'clippy -- -W clippy::pedantic'"
+alias cw="cargo watch -c --poll -x 'clippy'"
+alias cwr="cargo watch -c --poll -x run"
+#-- -W clippy::pedantic
 alias cbr='cargo build --release'
 alias crr='cargo run --release'
 alias crd="cargo rustdoc"
@@ -72,6 +88,7 @@ alias cft="cargo fmt"
 
 #general rust aliases
 alias rft='rustfmt'
+alias rc='rustc'
 
 #git aliases
 alias g="git"
@@ -88,7 +105,7 @@ alias gi='git init'
 #more complex aliases
 alias ri="git init; cargo init"
 alias rn="new_cargo_quick"
-alias ka="killall -r '.*'"
+alias rnw="new_cargo_quick; cargo watch -c --poll -x clippy"
 
 new_cargo_quick() {
   mkdir $1

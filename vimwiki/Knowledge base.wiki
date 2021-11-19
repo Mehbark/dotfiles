@@ -1,0 +1,12 @@
+= Things I've had to look up using the 🤮 internet =
+
+== String from vec of chars rust ==
+General code snippet:
+{{{rust
+let char_vector: Vec<char> = vec!['h', 'e', 'l', 'l', 'o'];
+char_vector.iter().cloned().collect::<String>();
+}}}
+Source:
+https://stackoverflow.com/questions/29158406/creating-a-string-from-vecchar
+Tags:
+rust, conversion, types, char, string

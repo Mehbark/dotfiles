@@ -1,0 +1,48 @@
+= Youtube notes =
+Taking notes while watching youtube videos, so I can pretend I'm being productive.
+
+- [Coding Adventure: Ant and Slime Simulations](https://www.youtube.com/watch?v=X-iSQQgOd1A)
+    - Relevant links:
+        - Slime simulation project files: https://github.com/SebLague/Slime-Simulation
+        - Slime pattern paper https://uwe-repository.worktribe.com/output/980579
+        - Slime write-up and cool examples https://sagejenson.com/physarum
+        - Ant simulation video by Pezzza https://youtu.be/81GQNPJip2Y
+        - Slime video by Deep Look https://www.youtube.com/watch?v=Nx3Uu1hfl6Q
+        - Physarum project by Michael Fogleman https://github.com/fogleman/physarum
+
+    - Ant and slime simulations
+    - Discusses traveling salesman problem
+        - The number of solutions is equal to `(n - 1)! / 2`, where n is the number of points
+    - Ant colony optimization
+        - Ants start at a town, and have a weighted probability to go to a point based on distance and desirability, then we trace its steps.
+        - We can use multiple ants, and score how good their paths were, then put "pheromones" that affect future ants' pathing.
+        - Successful, but many parameters that are tedious to configure for each problem.
+    - Ants for fun
+        - When randomness in movement is too high the ant mostly stays in one place.
+        - Then the ability to sense and go towards phone in a cone in front of it.
+        - Ants in real life can actually navigate home on their own, particularly desert ants use complex methods.
+        - Blue pheromones are laid down when the ants leave the colony, and red ones once they've found food.
+        - Pheromone detection in 3 zones: Directly in front of ant, front-left, and front-right.
+            - Ants look at the concentration of pheromones in these three places and use it (as well as some randomness) to decide where to go.
+        - Pheromones lose strength over time, to mimic effects of evaporation.
+        - Obstacles are added, and ants essentially bounce off them.
+        - With difficult implements cave generation, and ability to edit it
+        - Spawner script to scatter clumps of food around
+        - Ants return to empty food clusters because the pheromone trails are still there
+        - Real ants are more sophisticated, they have even be found to scatter repellent pheromones at depleted food sources.
+    - Slime molds
+        - Slime molds are simpler, so much larger simulations should be possible
+        - Uses pseudo random number generator that just fiddles with bits
+        - For each pixel the color is set to the value from the pseudo-random number generation, to test how random it looks
+        - Agents have angle and position, and bounce in a random direction when they hit a side of the screen
+        - Each pixel gets dimmer over time
+        - Trails diffuse over time by blurring the texture
+            - Blurring is achieved by setting each pixel to the average of its neighbors
+        - Turning based off pixels in front of it like ants, with randomness
+        - Since this a compute shader it can go extremely large
+        - Beautiful patterns are formed, kind of like bubbles, but sometimes agents will "pop" off (which is also beautiful)
+        - Various experiments with parameters are shown, all stunning
+    - Multiple slime species
+        - New species mask, pixel drawn is affected by species mask
+        - Slime species treat trails of other species as negative, which means they navigate away from them
+        - Beautiful of course

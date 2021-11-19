@@ -1,0 +1,15 @@
+= Mehbark's stuff! =
+
+== [[Knowledge base]] ==
+
+[[TODO]]
+
+[[Things that might be cool]]
+
+== Where I keep stuff (kind of): ==
+    - Programming and stuff: file:~/main/programs, file:/mnt/c/Users/Clark/vscodemain
+
+Test table
+| uhh | lol |
+| a | b |
+| a | b |
